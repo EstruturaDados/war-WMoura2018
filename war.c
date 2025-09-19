@@ -7,9 +7,9 @@
 
 // definição da struct Territorio: armazena nome, cor do exército e número de tropas
 typedef struct {
-    char nome[30]; // campo para o nome do território
-    char cor[10];  // campo para a cor do exército
-    int tropas;    // número de tropas
+    char nome[30]; // nome do território
+    char cor[10];  // cor do exército
+    int tropas;    // tropas
 } Territorio;
 
 // protótipo da função que exibirá os territórios cadastrados
@@ -71,19 +71,17 @@ int main(void) {
     for (i = 0; i < MAX_TERRITORIOS; i++) {
         printf("Cadastro do território %d:\n", i + 1); // informa qual território está sendo cadastrado
 
-        // lê o nome do território (aceita espaços). " %29[^\n]" evita overflow e lê até newline.
-        // o espaço antes do % consome qualquer '\n' pendente no buffer.
         printf("  Nome (até 29 caracteres, pode conter espacos): ");
         scanf(" %29[^\n]", territorios[i].nome);
 
-        // lê a cor do exército (uma palavra). %9s evita overflow (máx 9 chars + '\0').
+        // lê a cor do exército
         printf("  Cor do exercito (uma palavra, sem espacos): ");
         scanf(" %9s", territorios[i].cor);
 
-        // lê a quantidade de tropas (validação simples: repetir até digitar um inteiro)
+        // lê a quantidade de tropas 
         printf("  Quantidade de tropas (numero inteiro): ");
         while (scanf("%d", &territorios[i].tropas) != 1) {
-            // se entrada inválida, limpa buffer até o fim da linha e pede novamente
+            
             int c;
             while ((c = getchar()) != '\n' && c != EOF) { } // descarta caracteres inválidos
             printf("  Entrada invalida. Digite um numero inteiro para tropas: ");
