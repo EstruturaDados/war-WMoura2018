@@ -1,6 +1,6 @@
 #include <stdalign.h>
-#include <stdio.h>   // biblioteca padrão de entrada/saída (printf, scanf)
-#include <string.h>  // biblioteca para funções com strings (opcional aqui, mas útil)
+#include <stdio.h>   // para usar print 
+#include <string.h>  // para string
 
 // define a quantidade fixa de territórios que vamos cadastrar
 #define MAX_TERRITORIOS 5

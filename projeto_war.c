@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h> // para usar print
+#include <string.h> // para usar string
+#include <stdlib.h> // para usar malloc
+#include <time.h> // para gerar numero aleatorio
 
 #define MAX_TERRITORIOS 5
 
@@ -15,14 +15,14 @@ void exibirTerritorios(const Territorio territorios[], int n);
 void simularBatalha(Territorio *atacante, Territorio *defensor);
 
 int main(void) {
-    // usamos calloc para alocar dinamicamente os territórios
+    // calloc para alocar dinamicamente os territórios
     Territorio *territorios = (Territorio*) calloc(MAX_TERRITORIOS, sizeof(Territorio));
     if (territorios == NULL) {
         printf("Erro de alocacao de memoria!\n");
         return 1;
     }
 
-    srand(time(NULL)); // inicializa a semente para números aleatórios
+    srand(time(NULL)); // gerador números aleatórios
 
     int i, opcao;
     int cadastrados = 0;
@@ -78,7 +78,7 @@ int main(void) {
                     } else {
                         simularBatalha(&territorios[atacante - 1], &territorios[defensor - 1]);
 
-                        // exibir territórios após a batalha
+                        // mostra territórios após a batalha
                         printf("\n=== Territorios apos a batalha ===\n");
                         exibirTerritorios(territorios, MAX_TERRITORIOS);
                     }
